@@ -1,7 +1,7 @@
 {
-  "name": "p-select",
+  "name": "p-el-select",
   "version": "0.0.1",
-  "main": "dist/p-select.common.js",
+  "main": "dist/p-el-select.common.js",
   "typings": "types/index.d.ts",
   "private": false,
   "author": "ame",
@@ -9,7 +9,7 @@
     "serve": "vue-cli-service serve",
     "test:unit": "jest --clearCache && vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name p-select ./src/components/index.ts",
+    "build": "vue-cli-service build --target lib --name p-el-select ./src/components/index.ts",
     "svg": "vsvg -s ./src/icons/svg -t ./src/icons/components --ext ts --es6",
     "premajor": "npm version premajor",
     "preminor": "npm version preminor",

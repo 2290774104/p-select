@@ -7,13 +7,13 @@ import SvgIcon from 'vue-svgicon'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss'
 
-import PSelect from './components'
+import PElSelect from './components'
 
 import App from '@/App.vue'
 import '@/icons/components'
 
 Vue.use(ElementUI)
-Vue.use(PSelect)
+Vue.use(PElSelect)
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',
   defaultWidth: '1em',

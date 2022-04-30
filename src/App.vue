@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p-select
+    <p-el-select
       v-model="model"
       :optionAttrs="{value: 'code', label: 'label'}"
       :options="options"
@@ -8,7 +8,7 @@
       clearable
       width="200px"
     />
-    <p-select
+    <p-el-select
       v-model="model2"
       :optionAttrs="{value: 'code', label: 'label'}"
       dataType="custom"

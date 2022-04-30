@@ -1,4 +1,4 @@
-import PSelect from './Select'
+import PElSelect from './Select'
 import _Vue, { PluginFunction, VueConstructor } from 'vue'
 
 interface InstallFunction extends PluginFunction<any> {
@@ -6,7 +6,7 @@ interface InstallFunction extends PluginFunction<any> {
 }
 
 const Components: { [key: string]: VueConstructor } = {
-  PSelect: PSelect,
+  PElSelect: PElSelect,
 }
 
 const install: InstallFunction = (Vue: typeof _Vue) => {

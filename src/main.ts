@@ -7,19 +7,21 @@ import SvgIcon from 'vue-svgicon'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss'
 
+import PSelect from './components'
 
 import App from '@/App.vue'
 import '@/icons/components'
 
 Vue.use(ElementUI)
+Vue.use(PSelect)
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',
   defaultWidth: '1em',
-  defaultHeight: '1em'
+  defaultHeight: '1em',
 })
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')

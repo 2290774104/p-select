@@ -82,12 +82,14 @@ export default class PSelect extends Vue {
           params.pageSize = this.pageSize
           if (Object.prototype.hasOwnProperty.call(this.netWork.params, 'defaultName') && this.userDefault) {
             params.name = (this.netWork.params as params<IParams>).defaultName
-            this.apiOptions = []
           }
         }
         const res = await this.netWork.method(params)
 
         if (res.code === 200) {
+          if (Object.prototype.hasOwnProperty.call(this.netWork.params, 'defaultName') && this.userDefault) {
+            this.apiOptions = []
+          }
           this.apiOptions = this.apiOptions.concat(res.data)
         } else {
           this.$message.error(res.msg)

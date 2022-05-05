@@ -1,6 +1,6 @@
 {
   "name": "p-el-select",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/p-el-select.common.js",
   "typings": "types/index.d.ts",
   "private": false,

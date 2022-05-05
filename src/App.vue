@@ -43,7 +43,7 @@ export default class App extends Vue {
     { code: '4', label: '选项4' },
   ]
 
-  private model2 = ''
+  private model2 = '1'
 
   private netWork: INetWork<IParams> = {
     method: (params: IParams) => {
@@ -59,7 +59,9 @@ export default class App extends Vue {
         data: options.filter(i => i.label.includes(params.name)),
       }
     },
-    params: {},
+    params: {
+      defaultName: '选项1'
+    },
   }
 }
 </script>

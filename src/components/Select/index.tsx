@@ -65,6 +65,9 @@ export default class PSelect extends Vue {
 
   private name = ''
 
+  // 是否使用默认name查询
+  private userDefault = true
+
   private async getOption() {
     if (!this.load) {
       this.apiOptions = []
@@ -77,6 +80,9 @@ export default class PSelect extends Vue {
           params.name = this.name
           params.pageNo = this.pageNo
           params.pageSize = this.pageSize
+          if (Object.prototype.hasOwnProperty.call(this.netWork.params, 'defaultName') && this.userDefault) {
+            params.name = (this.netWork.params as params<IParams>).defaultName
+          }
         }
         const res = await this.netWork.method(params)
 
@@ -120,6 +126,8 @@ export default class PSelect extends Vue {
 
   // 输入查询条件
   private filterMethod(name: string) {
+    // 输入查询条件后不再使用默认查询条件
+    this.userDefault = false
     this.name = name
     this.apiOptions = []
     this.pageNo = 1

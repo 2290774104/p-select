@@ -27,6 +27,7 @@ export interface IPage {
   name?: string
   pageNo?: number
   pageSize?: number
+  defaultName?: string
 }
 
 export type params<P> = IPage | P

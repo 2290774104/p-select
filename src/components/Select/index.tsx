@@ -87,7 +87,7 @@ export default class PSelect extends Vue {
         const res = await this.netWork.method(params)
 
         if (res.code === 200) {
-          if (Object.prototype.hasOwnProperty.call(this.netWork.params, 'defaultName') && this.userDefault) {
+          if (this.netWork.params && Object.prototype.hasOwnProperty.call(this.netWork.params, 'defaultName') && this.userDefault) {
             this.apiOptions = []
           }
           this.apiOptions = this.apiOptions.concat(res.data)

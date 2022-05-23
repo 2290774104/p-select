@@ -6,6 +6,7 @@
       :options="options"
       placeholder="请选择"
       clearable
+      filterable
       width="200px"
     />
     <p-el-select

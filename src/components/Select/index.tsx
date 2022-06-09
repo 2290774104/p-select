@@ -156,7 +156,7 @@ export default class PSelect extends Vue {
         v-model={this.model}
         v-load-more={this.loadMore}
         {...{ props: props, on: selectListeners }}
-        filter-method={this.lazy ? this.filterMethod : ''}
+        filter-method={this.lazy ? this.filterMethod : null}
         on-change={this.selectChange}
         style={this.selectStyle}
       >

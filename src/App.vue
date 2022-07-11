@@ -19,6 +19,7 @@
       filterable
       lazy
       width="200px"
+      @updata-option="updataOption"
     />
   </div>
 </template>
@@ -63,6 +64,10 @@ export default class App extends Vue {
     params: {
       defaultName: '选项1'
     },
+  }
+
+  private updataOption(options: any) {
+    console.log(options)
   }
 }
 </script>

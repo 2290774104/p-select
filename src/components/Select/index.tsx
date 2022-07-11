@@ -91,6 +91,7 @@ export default class PSelect extends Vue {
             this.apiOptions = []
           }
           this.apiOptions = this.apiOptions.concat(res.data)
+          this.updataOption(this.apiOptions)
         } else {
           this.$message.error(res.msg)
         }
@@ -98,6 +99,11 @@ export default class PSelect extends Vue {
     } catch (err) {
       console.log(err)
     }
+  }
+
+  @Emit('updata-option')
+  private updataOption(options: IOption[]): IOption[] {
+    return options
   }
 
   private loadMore() {

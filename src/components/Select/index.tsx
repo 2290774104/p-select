@@ -6,7 +6,7 @@ import { ValueType, IOptionAttrs, IOption, params, INetWork, IChangeProp } from 
 import './directives/load-more'
 
 interface IParams {
-  [key: string]: unknown
+  [key: string]: any
 }
 
 @Component({ name: 'PSelect' })
@@ -45,6 +45,8 @@ export default class PSelect extends Vue {
   // 是否开始加载
   @Prop({ type: Boolean, default: true }) private readonly load!: boolean
 
+  @Prop({ type: String, default: 'name' }) private readonly filterField!: string
+
   private model: ValueType = ''
 
   private apiOptions: IOption[] = []
@@ -77,11 +79,11 @@ export default class PSelect extends Vue {
       if (this.dataType === 'custom') {
         const params: params<IParams> = this.netWork.params as params<IParams>
         if (this.lazy) {
-          params.name = this.name
+          params[this.filterField] = this.name
           params.pageNo = this.pageNo
           params.pageSize = this.pageSize
           if (Object.prototype.hasOwnProperty.call(this.netWork.params, 'defaultName') && this.userDefault) {
-            params.name = (this.netWork.params as params<IParams>).defaultName
+            params[this.filterField] = (this.netWork.params as params<IParams>).defaultName
           }
         }
         const res = await this.netWork.method(params)
@@ -144,7 +146,7 @@ export default class PSelect extends Vue {
   }
 
   render(h: CreateElement): VNode {
-    const props = omit(this.$attrs, ['optionAttrs', 'dataType', 'options', 'kind', 'lazy', 'pageSize', 'filter-method'])
+    const props = omit(this.$attrs, ['optionAttrs', 'dataType', 'options', 'kind', 'lazy', 'pageSize', 'filter-method', 'filterField'])
     const selectListeners = omit(this.$listeners, ['model-change', 'change'])
     const renderOption = (options: IOption[]) => options.filter((i: IOption) => !i.hidden).map((i: IOption) => {
       return (

@@ -18,6 +18,7 @@
       clearable
       filterable
       lazy
+      filterField="name2"
       width="200px"
       @updata-option="updataOption"
     />
@@ -29,26 +30,28 @@ import { Component, Vue } from 'vue-property-decorator'
 import { INetWork } from '../types'
 
 interface IParams {
-  name: string
+  name2: string
   pageNo: number
   pageSize: number
 }
 
 @Component
 export default class App extends Vue {
-  private model = ''
+  model = ''
 
-  private options = [
+  options = [
     { code: '1', label: '选项1' },
     { code: '2', label: '选项2' },
     { code: '3', label: '选项3' },
     { code: '4', label: '选项4' },
   ]
 
-  private model2 = '1'
+  model2 = '1'
 
-  private netWork: INetWork<IParams> = {
+  netWork: INetWork<{defaultName: string}> = {
     method: (params: IParams) => {
+      console.log(params);
+      
       const options = []
       for (let i = 0; i < params.pageSize; i++) {
         options.push({
@@ -58,15 +61,15 @@ export default class App extends Vue {
       }
       return {
         code: 200,
-        data: options.filter(i => i.label.includes(params.name)),
+        data: options.filter(i => i.label.includes(params.name2)),
       }
     },
     params: {
-      defaultName: '选项1'
+      defaultName: '选项1',
     },
   }
 
-  private updataOption(options: any) {
+  updataOption(options: any) {
     console.log(options)
   }
 }

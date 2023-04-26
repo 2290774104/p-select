@@ -30,7 +30,7 @@ export interface IPage {
   defaultName?: string
 }
 
-export type params<P> = IPage | P
+export type params<P> = IPage & P
 
 export interface INetWork<P> {
   method: Function

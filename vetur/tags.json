@@ -37,7 +37,8 @@
       "width",
       "lazy",
       "pageSize",
-      "load"
+      "load",
+      "filter-field"
     ],
     "defaults": [
       "v-model",

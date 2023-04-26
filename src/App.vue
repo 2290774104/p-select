@@ -18,7 +18,7 @@
       clearable
       filterable
       lazy
-      filterField="name2"
+      filter-field="name2"
       width="200px"
       @updata-option="updataOption"
     />
